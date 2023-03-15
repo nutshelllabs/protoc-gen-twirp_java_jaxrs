@@ -20,3 +20,5 @@ tmp/
 #Idea project files
 .idea
 
+#Bazel build files
+bazel*
