@@ -13,7 +13,7 @@ go_library(
 )
 
 go_binary(
-    name = "protoc-gen-twirp_java_jaxrs",
+    name = "protoc_gen_twirp_java_jaxrs_binary",
     embed = [":go_default_library"],
     visibility = ["//visibility:public"],
 )
