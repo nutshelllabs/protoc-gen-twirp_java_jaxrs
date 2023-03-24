@@ -186,6 +186,7 @@ func (g *generator) generateServiceClient(file *descriptor.FileDescriptorProto, 
 	g.P(`  private final javax.ws.rs.client.WebTarget target;`)
 	g.P()
 	g.P(`  public `, serviceClass, `(javax.ws.rs.client.WebTarget target) {`)
+	g.P(`    System.out.println("Hello World")`)
 	g.P(`    this.target = target.path("`, servicePath, `");`)
 	g.P(`    this.target.register(new `, provider, `());`)
 	g.P(`  }`)
