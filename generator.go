@@ -4,10 +4,11 @@ import (
 	"bytes"
 	"fmt"
 
+	"strings"
+
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/protoc-gen-go/descriptor"
 	plugin "github.com/golang/protobuf/protoc-gen-go/plugin"
-	"strings"
 )
 
 type generator struct {
@@ -90,7 +91,8 @@ public `, static, `class `, serviceName, ` implements javax.ws.rs.ext.MessageBod
 
         @Override
         public long getSize(com.google.protobuf.Message t, Class<?> type, java.lang.reflect.Type genericType, java.lang.annotation.Annotation[] annotations, javax.ws.rs.core.MediaType mediaType) {
-            if (t == null) {
+            System.out.println("getSize");
+			if (t == null) {
                 return -1;
             }
             java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();

@@ -10,7 +10,6 @@ import (
 )
 
 func main() {
-	os.Exit(1)
 	data, err := ioutil.ReadAll(os.Stdin)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "error reading input")
