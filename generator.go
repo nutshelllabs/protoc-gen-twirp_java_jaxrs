@@ -45,7 +45,17 @@ func (g *generator) processFile(file *descriptor.FileDescriptorProto) error {
 		return fmt.Errorf("twirp_java_jaxrs cannot not work with java_generic_services option")
 	}
 
-	g.Response.File = append(g.Response.File, g.generateProvider(file))
+  exists := false
+  provider := g.generateProvider(file)
+  for _, existing := range g.Response.File {
+    if *provider.Name == *existing.Name {
+      exists = true
+      break
+    }
+  }
+  if !exists {
+	  g.Response.File = append(g.Response.File, provider)
+	}
 
 	for _, service := range file.GetService() {
 		out := g.generateServiceInterface(file, service)
